@@ -1,8 +1,12 @@
-filename = input("Enter you name : ")
+import re
 
-fileOpen = open(filename,'r')
+txt = "The rain in Spain"
 
+x = re.search('""',txt)
 
-line = fileOpen.readline()
+if x:
+  print("YES! We have a match!")
+else:
+  print("No match")
 
-print(line)
+print(x)

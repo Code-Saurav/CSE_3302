@@ -2,33 +2,38 @@
 fileName = input("Enter the file name : ")
 print('\n')
 
-#file is opened as read only in fopen 
-fopen= open(fileName,'r')
+with open(fileName) as fopen:
+   line = fopen.readline()
+   count = 0
+   while line:
+        # if line.strip() == "{":
+        #     count += 1
+        # elif line.strip() == "}":
+        #     count -= 1
 
-#read the line from the opened file 
-line_X = fopen.readline()
+        for character in line:
+            if character == "/":
+                pass
+                if character =="/":
+                    break
+            else:
+                if character == "{":
+                    count += 1 
+                if character == "}":
+                    count -= 1
 
-#nesting depth
-depth = 0
 
-while line_X:
+            # if character == "{":
+            #     count += 1
+            # if character == "}":
+            #     count -= 1
 
-    #remove the trailing character from the string, In this case space is the trailing character
-    primaryLine = line_X.rstrip()
-    
-    line_X = line_X.strip()
+        print("{} {}".format(count,line.strip()))       
+            
+                
+        # print("{} {}".format(count, line.strip()))
+        # if line.strip() == "}":
+        #     count -= 1
+        line = fopen.readline()
 
-    #every open curly braces except inside quote means 1 nesting depth
-    if(line_X == "{"):
-        depth += 1
-
-    print(str(depth) + ' ' + primaryLine)
-
-    #every closing curly braces except inside the quotes means -1 nesting depth
-    if(line_X == "}"):
-        depth -= 1
-
-    #if there is no more lines to read the loop ends    
-    line_X = fopen.readline()
-#closing the opened file.
 fopen.close()
