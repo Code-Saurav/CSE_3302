@@ -3,7 +3,7 @@ class Foo
 {
     void Foo()
     {
-        //System.out.println("braces are fun! {{{{{"); //ignored
+        System.out.println("braces are fun! {{{{{"); //ignored
         if(condition)
         {
             //also ignored:{

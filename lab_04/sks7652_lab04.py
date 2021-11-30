@@ -17,10 +17,17 @@ with open(fileName) as fopen:
                 if character =="/":
                     break
             else:
+
                 if character == "{":
                     count += 1 
                 if character == "}":
                     count -= 1
+
+                    #todo : Ignore the braces inside the quotes
+                    #todo : check the unmatched braces ( expected '}') but not found EOF ourput an error message
+                    #todo : allow for multiple braces on the same lin e, fo rexmple """"
+                    #tod : Handle block coments that cross multiple lines of the input file 
+                    # /* comment with ignored braces { */
 
 
             # if character == "{":
